@@ -33,22 +33,18 @@ local function showMenu(id)
     lib.showContext(id)
 end
 
-local function hideMenu(onExit)
-    lib.hideContext(onExit)
-end
-
 local function getItemImage(itemName)
     return Config.ImageSettings.basePath .. itemName .. Config.ImageSettings.extension
 end
 
-RegisterNetEvent('food_menu:openMenu', function()
+AddEventHandler('food_menu:openMenu', function()
     local categories = {
         drinks = {
-            title = "Joogid",
+            title = "Drinks",
             items = {}
         },
         food = {
-            title = "Söögid",
+            title = "Food",
             items = {}
         }
     }
@@ -71,7 +67,7 @@ RegisterNetEvent('food_menu:openMenu', function()
         for _, item in ipairs(categories.drinks.items) do
             table.insert(drinkOptions, {
                 title = item.label,
-                description = "Hind: $" .. item.price,
+                description = "Price: $" .. item.price,
                 image = getItemImage(item.item),
             })
         end
@@ -80,7 +76,7 @@ RegisterNetEvent('food_menu:openMenu', function()
 
         table.insert(mainOptions, {
             title = "🥤 " .. categories.drinks.title,
-            description = "Vali jook (" .. #categories.drinks.items .. ")",
+            description = "Select drink (" .. #categories.drinks.items .. ")",
             menu = drinksMenuId
         })
     end
@@ -92,7 +88,7 @@ RegisterNetEvent('food_menu:openMenu', function()
         for _, item in ipairs(categories.food.items) do
             table.insert(foodOptions, {
                 title = item.label,
-                description = "Hind: $" .. item.price,
+                description = "Price: $" .. item.price,
                 image = getItemImage(item.item),
             })
         end
@@ -101,11 +97,11 @@ RegisterNetEvent('food_menu:openMenu', function()
 
         table.insert(mainOptions, {
             title = "🍔 " .. categories.food.title,
-            description = "Vali toit (" .. #categories.food.items .. ")",
+            description = "Select food (" .. #categories.food.items .. ")",
             menu = foodMenuId
         })
     end
 
-    registerMenu(mainMenuId, "🍽️ Toidumenüü", mainOptions)
+    registerMenu(mainMenuId, "🍽️ Food Menu", mainOptions)
     showMenu(mainMenuId)
 end)
