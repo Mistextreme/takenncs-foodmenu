@@ -6,7 +6,7 @@ lua54 'yes'
 name 'takenncs-foodmenu'
 author 'takenncs'
 version '1.0.0'
-description 'foodmenu for takenncs-lib'
+description 'foodmenu for ox_lib'
 
 shared_scripts {
     '@ox_lib/init.lua',
@@ -18,9 +18,9 @@ client_scripts {
 }
 
 dependencies {
+    'es_extended',
     'ox_lib',
     'ox_target',
-    'qb-core',
     'ox_inventory'
 }
 
