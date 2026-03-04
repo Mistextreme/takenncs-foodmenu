@@ -1,7 +1,7 @@
 Config = {}
 
 Config.ImageSettings = {
-    basePath = 'nui://ox_inventory/web/images/', 
+    basePath = 'nui://ox_inventory/web/images/',
     extension = '.png'
 }
 
@@ -38,4 +38,3 @@ Config.TargetZones = {
         }
     }
 }
-
